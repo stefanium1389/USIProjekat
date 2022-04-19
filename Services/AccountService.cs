@@ -34,14 +34,14 @@ public static class AccountService {
 
         Accounts.Remove(acc);
     }
-    public static bool LogIn(string user, string pass)
+    public static int LogIn(string user, string pass)
     {
         foreach (Account acc in Accounts) {
             if (acc.Email == user){
                 if (acc.Password == pass)
-                return true;
+                return acc.Id;
             }
         }
-        return false;
+        return -1;
     }
 }
