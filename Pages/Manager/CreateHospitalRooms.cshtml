@@ -1,0 +1,27 @@
+﻿@page
+@using RazorPagesHospitalRoom.Models;
+@model RazorPagesManager.Pages.CreateHospitalRoomsModel;
+@{
+     ViewData["Title"] = "Create new Hospital Room";
+}
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST">
+                <legend>Create A New Room</legend>
+                <div class="mb-3">
+                    <label for="txtName" class="form-label">Name</label>
+                    <input asp-for="NewRoom.Name" type="text" class="form-control" id="txtName" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="NewRoom.Type">Type</label>
+                    <select asp-for="NewRoom.Type" asp-items="Html.GetEnumSelectList<RoomType>()" class="mr-5"></select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+ 
+    </div>
+ 
+</div>

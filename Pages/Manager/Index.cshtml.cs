@@ -8,5 +8,9 @@ namespace RazorPagesManager.Pages
         public void OnGet()
         {
         }
+        public IActionResult OnPostCRUDHospitalRooms()
+        {
+            return Redirect("Manager/CRUDHospitalRooms");
+        }
     }
 }

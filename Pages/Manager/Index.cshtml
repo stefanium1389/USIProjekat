@@ -3,3 +3,41 @@
 @{
     ViewData["Title"] = "Manager";
 }
+
+<div class="text-center">
+    <h1 class="display-4">Welcome, @DateTime.Now</h1>
+    <table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Manager menu</th>
+
+        </tr>
+    </thead>
+    
+        <tr>
+            <td>Manage hospital rooms</td>
+            <td>
+                <form method="post" asp-page-handler="CRUDHospitalRooms" asp-route-id="">
+                    <button class="btn btn-primary">Go</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Overview of hospital equipment, search and filtering</td>
+            <td>
+                <form method="post" asp-page-handler="Search-hospital-equipment" asp-route-id="">
+                    <button class="btn btn-primary">Go</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Allocate equipment to rooms</td>
+            <td>
+                <form method="post" asp-page-handler="Allocate-equipment-rooms" asp-route-id="">
+                    <button class="btn btn-primary">Go</button>
+                </form>
+            </td>
+        </tr>
+    
+</table>
+</div>

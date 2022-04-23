@@ -1,0 +1,27 @@
+﻿@page
+@using RazorPagesHospitalRoom.Models;
+@model RazorPagesManager.Pages.EditHospitalRoomsModel
+@{
+     ViewData["Title"] = "Edit Hospital Room";
+}
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST">
+                <legend>Edit A Room</legend>
+                <div class="mb-3">
+                    <label for="txtName" class="form-label">Name</label>
+                    <input asp-for="Hr.Name" type="text" class="form-control" id="txtName" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Hr.Type">Type</label>
+                    <select asp-for="Hr.Type" asp-items="Html.GetEnumSelectList<RoomType>()" class="mr-5"></select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+ 
+    </div>
+ 
+</div>

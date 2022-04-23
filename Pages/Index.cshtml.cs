@@ -17,6 +17,7 @@ public class IndexModel : PageModel
     [BindProperty]
     public Credentials Cred { get; set; } = new Credentials();
     
+    public Account Current { get; set; }
     public void OnGet()
     {
     
@@ -25,8 +26,8 @@ public class IndexModel : PageModel
     {
         if(AccountService.LogIn(Cred.Username,Cred.Password) != -1)
         {
-           Account current = AccountService.Get(AccountService.LogIn(Cred.Username,Cred.Password)); //refactor this somehow, also the app should know which user is logged in via the id
-           switch(current.Type){
+           Current = AccountService.Get(AccountService.LogIn(Cred.Username,Cred.Password)); //refactor this somehow, also the app should know which user is logged in via the id
+           switch(Current.Type){
                 case AccountType.Manager:
                     return Redirect("Manager"); 
                 case AccountType.Doctor:
