@@ -37,7 +37,6 @@ public class IndexModel : PageModel
                 case AccountType.Secretary:
                     return Redirect("Secretary");
            }
-           
         }
         return null;
     }

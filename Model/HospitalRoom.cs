@@ -12,4 +12,4 @@ public class HospitalRoom
 
 
 }
-public enum RoomType {OPERATIONS, WAITING, STORAGE, EXAMINATIONS}
+public enum RoomType {Operations, Waiting, STORAGE, Examinations}

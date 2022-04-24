@@ -34,11 +34,11 @@
 						<td>@room.Name</td>
 						<td>@room.Type</td>
                         <td>
-                            <a asp-page="./EditHospitalRooms" asp-route-id="@room.Id" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a onclick="if(@room.Id==0){return confirm('You cannot edit or delete Storage!')}" asp-page="./EditHospitalRooms" asp-route-id="@room.Id" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                         </td>
 						<td>
                             <form asp-page-handler="Delete" asp-route-id="@room.Id">
-                                <button type="btn" class="text-danger ml-1" onclick="return confirm('Are you sure you want to delete this record?\nThis is irreversible!')"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
+                                <button type="btn" class="text-danger ml-1" onclick="if(@room.Id==0){return confirm('You cannot edit or delete Storage!')}else return confirm('Are you sure you want to delete this record?\nThis is irreversible!')"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
                             </form>
                         </td>
 					</tr>

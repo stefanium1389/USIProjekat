@@ -1,0 +1,55 @@
+﻿@page
+@using RazorPagesHospitalEquipment.Models;
+@using RazorPagesHospitalRoom.Models;
+@using RazorPagesHospitalRoom.Services;
+@model RazorPagesManager.Pages.ManagerEquipmentModel;
+@{
+}
+
+<div>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <form method="post" class="card p-3">
+    <div class="row">
+        <div asp-validation-summary="All"></div>
+    </div>
+    <div class="form-group mb-0 align-middle">
+        <label asp-for="STerms.SearchTerm">Search</label>
+        <input type="text" asp-for="STerms.SearchTerm" class="mr-5">
+        <label asp-for="STerms.FilterByEqTypeBool">Filter By Equipment Type</label>
+        <input type="checkbox" asp-for="STerms.FilterByEqTypeBool" class="mr-5">
+        <select asp-for="STerms.FilterByEq" asp-items="Html.GetEnumSelectList<EquipmentType>()" class="mr-5"></select>
+        <label asp-for="STerms.FilterByRoomTypeBool">Filter By Room Type</label>
+        <input type="checkbox" asp-for="STerms.FilterByRoomTypeBool" class="mr-5">
+        <select asp-for="STerms.FilterByRoom" asp-items="Html.GetEnumSelectList<RoomType>()" class="mr-5"></select>
+        <label asp-for="STerms.FilterByAmountBool">Filter By Amount</label>
+        <input type="checkbox" asp-for="STerms.FilterByAmountBool" class="mr-5">
+        <select asp-for="STerms.STAmount" asp-items="Html.GetEnumSelectList<RazorPagesManager.Pages.ManagerEquipmentModel.Amount>()" class="mr-5"></select>
+        <button class="btn btn-primary">Search</button>
+    </div>
+    </form>
+    <table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Room</th>
+            <th scope="col">Room Type</th>
+            <th scope="col">Equipment Type</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Results)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Amount</td>
+            <td>@HospitalRoomService.Get(item.RoomId).Name</td>
+            <td>@HospitalRoomService.Get(item.RoomId).Type</td>
+            <td>@item.Type</td>
+            <td>
+                <a asp-page="./EditHospitalRooms" asp-route-id="@item.Id" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+            </td>
+        </tr>
+    }
+</table>
+</div>

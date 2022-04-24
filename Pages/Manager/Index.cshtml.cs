@@ -12,5 +12,9 @@ namespace RazorPagesManager.Pages
         {
             return Redirect("Manager/CRUDHospitalRooms");
         }
+        public IActionResult OnPostManagerEquipment()
+        {
+            return Redirect("Manager/ManagerEquipment");
+        }
     }
 }

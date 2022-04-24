@@ -11,10 +11,10 @@ public static class HospitalRoomService {
         HospitalRooms = new List<HospitalRoom> //TODO: read from a database (or file), for now i hardcoded some accounts to have something to work with
                 {
                     new HospitalRoom { Id = 0, Name = "Storage", Type = RoomType.STORAGE},
-                    new HospitalRoom { Id = 1, Name = "Syrgery", Type = RoomType.OPERATIONS},
-                    new HospitalRoom { Id = 2, Name = "Waiting room", Type = RoomType.WAITING},
-                    new HospitalRoom { Id = 3, Name = "Pediatritian", Type = RoomType.EXAMINATIONS},
-                    new HospitalRoom { Id = 4, Name = "Dentist", Type = RoomType.OPERATIONS}
+                    new HospitalRoom { Id = 1, Name = "Syrgery", Type = RoomType.Operations},
+                    new HospitalRoom { Id = 2, Name = "Waiting room", Type = RoomType.Waiting},
+                    new HospitalRoom { Id = 3, Name = "Pediatritian", Type = RoomType.Examinations},
+                    new HospitalRoom { Id = 4, Name = "Dentist", Type = RoomType.Operations}
                 };
     }
 
